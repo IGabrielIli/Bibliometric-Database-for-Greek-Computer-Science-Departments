@@ -29,3 +29,17 @@ The goal is to provide Greek Computer Science Departments with a scalable, autom
 **Extensible Architecture:**
   - Modular design for easy integration with front-end applications or additional data sources.
   - Future-ready for UI dashboards or educational policy tools.
+
+## Technologies Used
+
+- **Python** (Selenium, Pandas, MySQL Connector, dotenv, logging)
+
+- **MySQL** (Workbench, HeidiSQL)
+
+- **PHP** (REST API development)
+
+- **Linux Server** (SSH, SCP, cron jobs for automation)
+
+- **Postman** (API testing)
+
+- **Development Tools:** IntelliJ IDEA, VS Code, XeLaTeX, Overleaf
