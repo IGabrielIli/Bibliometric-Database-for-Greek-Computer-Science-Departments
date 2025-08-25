@@ -91,3 +91,5 @@ Undergraduate Thesis – International Hellenic University
 Supervisor: Antonis Sidiropoulos
 
 May 2023 – Completion 2025
+
+Grade - 10/10
