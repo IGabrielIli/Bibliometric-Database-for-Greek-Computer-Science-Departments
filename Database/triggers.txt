@@ -1,0 +1,348 @@
+DELIMITER $$
+
+CREATE TRIGGER after_departments_insert
+AFTER INSERT ON departments
+FOR EACH ROW
+BEGIN
+    INSERT INTO departments_records (department_id, short_code, department_title, university, city, department_url, department_staff_url, department_supporting_staff_url, operation )
+    VALUES (NEW.department_id, NEW.short_code, NEW.department_title, NEW.university, NEW.city, NEW.department_url, NEW.department_staff_url, NEW.department_supporting_staff_url, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_departments_update
+AFTER UPDATE ON departments
+FOR EACH ROW
+BEGIN
+    INSERT INTO departments_records (department_id, short_code, department_title, university, city, department_url, department_staff_url, department_supporting_staff_url, operation )
+    VALUES (NEW.department_id, NEW.short_code, NEW.department_title, NEW.university, NEW.city, NEW.department_url, NEW.department_staff_url, NEW.department_supporting_staff_url, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_departments_delete
+AFTER DELETE ON departments
+FOR EACH ROW
+BEGIN
+    INSERT INTO departments_records (department_id, short_code, department_title, university, city, department_url, department_staff_url, department_supporting_staff_url, operation )
+    VALUES (OLD.department_id, OLD.short_code, OLD.department_title, OLD.university, OLD.city, OLD.department_url, OLD.department_staff_url, OLD.department_supporting_staff_url, 'DELETE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publications_insert
+AFTER INSERT ON publications
+FOR EACH ROW
+BEGIN
+    INSERT INTO publications_records (publication_id, publication_scholar_id, publication_title, authors, publication_date, journal, publisher, citations, publication_url, publication_year, operation )
+    VALUES (NEW.publication_id, NEW.publication_scholar_id, NEW.publication_title, NEW.authors, NEW.publication_date, NEW.journal, NEW.publisher, NEW.citations, NEW.publication_url, NEW.publication_year, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publications_update
+AFTER UPDATE ON publications
+FOR EACH ROW
+BEGIN
+    INSERT INTO publications_records (publication_id, publication_scholar_id, publication_title, authors, publication_date, journal, publisher, citations, publication_url, publication_year, operation )
+    VALUES (NEW.publication_id, NEW.publication_scholar_id, NEW.publication_title, NEW.authors, NEW.publication_date, NEW.journal, NEW.publisher, NEW.citations, NEW.publication_url, NEW.publication_year, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publications_delete
+AFTER DELETE ON publications
+FOR EACH ROW
+BEGIN
+    INSERT INTO publications_records (publication_id, publication_scholar_id, publication_title, authors, publication_date, journal, publisher, citations, publication_url, publication_year, operation )
+    VALUES (OLD.publication_id, OLD.publication_scholar_id, OLD.publication_title, OLD.authors, OLD.publication_date, OLD.journal, OLD.publisher, OLD.citations, OLD.publication_url, OLD.publication_year, 'DELETE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publications_staff_insert
+AFTER INSERT ON publications_staff
+FOR EACH ROW
+BEGIN
+    INSERT INTO publications_staff_records (publication_staff_id, staff_id, publication_id, author_order, operation)
+    VALUES (NEW.publication_staff_id, NEW.staff_id, NEW.publication_id, NEW.author_order, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publications_staff_update
+AFTER UPDATE ON publications_staff
+FOR EACH ROW
+BEGIN
+    INSERT INTO publications_staff_records (publication_staff_id, staff_id, publication_id, author_order, operation)
+    VALUES (NEW.publication_staff_id, NEW.staff_id, NEW.publication_id, NEW.author_order, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publications_staff_delete
+AFTER DELETE ON publications_staff
+FOR EACH ROW
+BEGIN
+    INSERT INTO publications_staff_records (publication_staff_id, staff_id, publication_id, author_order, operation)
+    VALUES (OLD.publication_staff_id, OLD.staff_id, OLD.publication_id, OLD.author_order,  'DELETE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publication_citations_per_year_insert
+AFTER INSERT ON publication_citations_per_year
+FOR EACH ROW
+BEGIN
+    INSERT INTO publication_citations_per_year_records (publication_citations_per_year_id, publication_id, `year`, citations, operation)
+    VALUES (NEW.publication_citations_per_year_id, NEW.publication_id, NEW.`year`, NEW.citations, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publication_citations_per_year_update
+AFTER UPDATE ON publication_citations_per_year
+FOR EACH ROW
+BEGIN
+    INSERT INTO publication_citations_per_year_records (publication_citations_per_year_id, publication_id, `year`, citations, operation)
+    VALUES (NEW.publication_citations_per_year_id, NEW.publication_id, NEW.`year`, NEW.citations, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_publication_citations_per_year_delete
+AFTER DELETE ON publication_citations_per_year
+FOR EACH ROW
+BEGIN
+    INSERT INTO publication_citations_per_year_records (publication_citations_per_year_id, publication_id, `year`, citations, operation)
+    VALUES (OLD.publication_citations_per_year_id, OLD.publication_id, OLD.`year`, OLD.citations,  'DELETE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_roles_insert
+AFTER INSERT ON roles
+FOR EACH ROW
+BEGIN
+    INSERT INTO roles_records (role_id, role_title, operation)
+    VALUES (NEW.role_id, NEW.role_title, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_roles_update
+AFTER UPDATE ON roles
+FOR EACH ROW
+BEGIN
+    INSERT INTO roles_records (role_id, role_title, operation)
+    VALUES (NEW.role_id, NEW.role_title, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_roles_delete
+AFTER DELETE ON roles
+FOR EACH ROW
+BEGIN
+    INSERT INTO roles_records (role_id, role_title, operation)
+    VALUES (OLD.role_id, OLD.role_title, 'DELETE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_insert
+AFTER INSERT ON staff
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_records (staff_id, scholar_id, first_name, last_name, operation)
+    VALUES (NEW.staff_id, NEW.scholar_id, NEW.first_name, NEW.last_name, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_update
+AFTER UPDATE ON staff
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_records (staff_id, scholar_id, first_name, last_name, operation)
+    VALUES (NEW.staff_id, NEW.scholar_id, NEW.first_name, NEW.last_name, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_delete
+AFTER DELETE ON staff
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_records (staff_id, scholar_id, first_name, last_name, operation)
+    VALUES (OLD.staff_id, OLD.scholar_id, OLD.first_name, OLD.last_name,  'DELETE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_citations_per_year_insert
+AFTER INSERT ON staff_citations_per_year
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_citations_per_year_records (staff_citations_per_year_id, staff_id, `year`, citations, operation)
+    VALUES (NEW.staff_citations_per_year_id, NEW.staff_id, NEW.`year`, NEW.citations, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_citations_per_year_update
+AFTER UPDATE ON staff_citations_per_year
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_citations_per_year_records (staff_citations_per_year_id, staff_id, `year`, citations, operation)
+    VALUES (NEW.staff_citations_per_year_id, NEW.staff_id, NEW.`year`, NEW.citations, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_citations_per_year_delete
+AFTER DELETE ON staff_citations_per_year
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_citations_per_year_records (staff_citations_per_year_id, staff_id, `year`, citations, operation)
+    VALUES (OLD.staff_citations_per_year_id, OLD.staff_id, OLD.`year`, OLD.citations,  'DELETE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_dept_role_insert
+AFTER INSERT ON staff_dept_role
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_dept_role_records (staff_role_id, staff_id, department_id, role_id, operation)
+    VALUES (NEW.staff_role_id, NEW.staff_id, NEW.department_id, NEW.role_id, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_dept_role_update
+AFTER UPDATE ON staff_dept_role
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_dept_role_records (staff_role_id, staff_id, department_id, role_id, operation)
+    VALUES (NEW.staff_role_id, NEW.staff_id, NEW.department_id, NEW.role_id, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_dept_role_delete
+AFTER DELETE ON staff_dept_role
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_dept_role_records (staff_role_id, staff_id, department_id, role_id, operation)
+    VALUES (OLD.staff_role_id, OLD.staff_id, OLD.department_id, OLD.role_id,  'DELETE');
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_statistics_insert
+AFTER INSERT ON staff_statistics
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_statistics_records (staff_statistic_id, staff_id, total_citations, last_5_years_citations, h_index, last_5_years_h_index, i10_index, last_5_years_i10_index, h_index_local, last_5_years_h_index_local, i10_index_local, last_5_years_i10_index_local, h_index_from_graph, last_5_years_h_index_from_graph, i10_index_from_graph, last_5_years_i10_index_from_graph, operation)
+    VALUES (NEW.staff_statistic_id, NEW.staff_id, NEW.total_citations, NEW.last_5_years_citations, NEW.h_index, NEW.last_5_years_h_index, NEW.i10_index, NEW.last_5_years_i10_index, NEW.h_index_local, NEW.last_5_years_h_index_local, NEW.i10_index_local, NEW.last_5_years_i10_index_local, NEW.h_index_from_graph, NEW.last_5_years_h_index_from_graph, NEW.i10_index_from_graph, NEW.last_5_years_i10_index_from_graph, 'INSERT');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_statistics_update
+AFTER UPDATE ON staff_statistics
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_statistics_records (staff_statistic_id, staff_id, total_citations, last_5_years_citations, h_index, last_5_years_h_index, i10_index, last_5_years_i10_index, h_index_local, last_5_years_h_index_local, i10_index_local, last_5_years_i10_index_local, h_index_from_graph, last_5_years_h_index_from_graph, i10_index_from_graph, last_5_years_i10_index_from_graph, operation)
+    VALUES (NEW.staff_statistic_id, NEW.staff_id, NEW.total_citations, NEW.last_5_years_citations, NEW.h_index, NEW.last_5_years_h_index, NEW.i10_index, NEW.last_5_years_i10_index, NEW.h_index_local, NEW.last_5_years_h_index_local, NEW.i10_index_local, NEW.last_5_years_i10_index_local, NEW.h_index_from_graph, NEW.last_5_years_h_index_from_graph, NEW.i10_index_from_graph, NEW.last_5_years_i10_index_from_graph, 'UPDATE');
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER after_staff_statistics_delete
+AFTER DELETE ON staff_statistics
+FOR EACH ROW
+BEGIN
+    INSERT INTO staff_statistics_records (staff_statistic_id, staff_id, total_citations, last_5_years_citations, h_index, last_5_years_h_index, i10_index, last_5_years_i10_index, h_index_local, last_5_years_h_index_local, i10_index_local, last_5_years_i10_index_local, h_index_from_graph, last_5_years_h_index_from_graph, i10_index_from_graph, last_5_years_i10_index_from_graph, operation)
+    VALUES (OLD.staff_statistic_id, OLD.staff_id, OLD.total_citations, OLD.last_5_years_citations, OLD.h_index, OLD.last_5_years_h_index, OLD.i10_index, OLD.last_5_years_i10_index, OLD.h_index_local, OLD.last_5_years_h_index_local, OLD.i10_index_local, OLD.last_5_years_i10_index_local, OLD.h_index_from_graph, OLD.last_5_years_h_index_from_graph, OLD.i10_index_from_graph, OLD.last_5_years_i10_index_from_graph, 'DELETE');
+END$$
+
+DELIMITER ;

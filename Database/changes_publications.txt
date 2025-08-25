@@ -1,0 +1,13 @@
+INSERT INTO `changes_publications` (`change_id`, `change_type`) VALUES
+	(1, 'Added Publication'),
+	(2, 'Deleted Publication'),
+	(3, 'Updated Publication Title'),
+	(4, 'Updated Publication Date'),
+	(5, 'Updated Publication Publisher'),
+	(6, 'Updated Publication Citations'),
+	(7, 'Updated Publication Url'),
+	(8, 'Added Publication-Staff'),
+	(9, 'Deleted Publication-Staff'),
+	(10, 'Updated Publication-Staff StaffID'),
+	(11, 'Updated Publication-Staff PublicationID'),
+	(12, 'Updated Publication-Staff Author Order');
