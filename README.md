@@ -12,7 +12,8 @@ The goal is to provide Greek Computer Science Departments with a scalable, autom
 **Automated Web Scraper (Python & Selenium):**
   - Extracts faculty data (publications, citations, h-index, i10-index, yearly citation graphs) from Google Scholar.
   - Handles encoding issues, validation, and error logging.
-**Relational Database (MySQL):**
+
+//**Relational Database (MySQL):**
   - Normalized schema in 3NF with triggers and history tables.
   - Stores publications, staff data, statistics, and year-by-year citations.
 **Stored Procedures:**
