@@ -59,20 +59,15 @@ The goal is to provide Greek Computer Science Departments with a scalable, autom
 
 1. **Clone Repository**
 2. Set up the Database
-
-- Import the provided MySQL schema.
-
-- Configure environment variables for credentials.
+  - Import the provided MySQL schema.
+  - Configure environment variables for credentials.
 3. Run the Scraper
 4. Deploy the API
-
-- Place the PHP API files on your server.
-
-- Configure database connection inside the API config file.
+  - Place the PHP API files on your server.
+  - Configure database connection inside the API config file.
 5. Test with Postman
-Use the included collection or directly call endpoints such as:
-
-GET /departments/all
+  Use the included collection or directly call endpoints such as:
+  GET /departments/all
 
 ## Future Work
 
@@ -90,6 +85,9 @@ You are free to use and modify it for research and educational activities, but p
 # Author
 
 Gavriil Ilikidis
+
 Undergraduate Thesis – International Hellenic University
+
 Supervisor: Antonis Sidiropoulos
+
 May 2023 – Completion 2025
