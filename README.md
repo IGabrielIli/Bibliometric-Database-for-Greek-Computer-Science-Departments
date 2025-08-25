@@ -57,7 +57,7 @@ The goal is to provide Greek Computer Science Departments with a scalable, autom
 
 ## Installation & Setup
 
-1. **Clone Repository**
+1. Clone Repository
 2. Set up the Database
   - Import the provided MySQL schema.
   - Configure environment variables for credentials.
