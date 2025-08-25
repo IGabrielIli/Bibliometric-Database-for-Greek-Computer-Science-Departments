@@ -13,16 +13,19 @@ The goal is to provide Greek Computer Science Departments with a scalable, autom
   - Extracts faculty data (publications, citations, h-index, i10-index, yearly citation graphs) from Google Scholar.
   - Handles encoding issues, validation, and error logging.
 
-//**Relational Database (MySQL):**
+**Relational Database (MySQL):**
   - Normalized schema in 3NF with triggers and history tables.
   - Stores publications, staff data, statistics, and year-by-year citations.
+
 **Stored Procedures:**
   - Predefined SQL functions to calculate per-staff and per-department metrics.
   - Supports aggregated statistics and comparative evaluations.
+
 **RESTful API (PHP):**
   - Secure token-based authentication.
   - Endpoints for accessing staff, department, and publication metrics.
   - Supports GZIP compression for improved performance.
+
 **Extensible Architecture:**
   - Modular design for easy integration with front-end applications or additional data sources.
   - Future-ready for UI dashboards or educational policy tools.
